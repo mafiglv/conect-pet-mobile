@@ -1,27 +1,19 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+ion-content {
+  --background: #ffffff; /* Fundo branco */
+  display: block; /* Garante que o ion-content não interfira na centralização */
+  position: relative; /* Posiciona o conteúdo relativamente à tela */
+  height: 100vh; /* Ocupa 100% da altura da tela */
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.logo-container {
+  position: absolute; /* Permite centralização absoluta */
+  top: 50%; /* Move o topo do container para 50% da altura da tela */
+  left: 50%; /* Move o lado esquerdo para 50% da largura da tela */
+  transform: translate(-50%, -50%); /* Centraliza o elemento corrigindo o deslocamento */
+  text-align: center; /* Centraliza o texto (se necessário) */
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+.logo {
+  width: 200px; /* Ajuste o tamanho da logo */
+  height: auto; /* Mantém a proporção da logo */
 }

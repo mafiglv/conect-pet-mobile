@@ -7,11 +7,11 @@ ion-toolbar {
 /* Banner Principal */
 .banner {
   position: relative;
-  background-color: #EAF6FF;
+  background-color: #287dd8;
   border-radius: 10px;
-  padding: 20px;
-  margin: 20px 10px;
-  text-align: left;
+  padding: 25px;
+  margin: 30px 10px;
+  text-align:left;
 }
 
 .banner-content {
@@ -21,15 +21,15 @@ ion-toolbar {
 
 .banner h2 {
   font-size: 18px;
-  color: #007BFF;
+  color: #f6f6f6;
   margin: 10;
   font-weight: bold;
 }
 
 .banner-dog {
   position: absolute;
-  right: -20px;
-  bottom: -29px;
+  right: -25px;
+  bottom: -38px;
   width: 150px;
   z-index: 0;
   transform: rotate(0deg);

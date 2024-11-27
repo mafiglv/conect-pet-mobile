@@ -1,14 +1,14 @@
 /* Menu Superior */
 ion-toolbar {
   --background: #fff;
-  --color: #007B55;
+  --color: #287dd8;
 }
 
 /* Banner Principal */
 .banner {
   position: relative;
   background-color: #287dd8;
-  border-radius: 10px;
+  border-radius: 15px;
   padding: 25px;
   margin: 30px 10px;
   text-align:left;
@@ -21,7 +21,7 @@ ion-toolbar {
 
 .banner h2 {
   font-size: 18px;
-  color: #f6f6f6;
+  color: #ffffff;
   margin: 10;
   font-weight: bold;
 }
@@ -31,8 +31,8 @@ ion-toolbar {
   right: -25px;
   bottom: -38px;
   width: 150px;
-  z-index: 0;
-  transform: rotate(0deg);
+  z-index: 1;
+  transform:rotate(0deg);
 }
 
 /* Texto Explicativo */
@@ -55,11 +55,11 @@ ion-toolbar {
 /* Círculo Azul */
 .blue-circle {
   position: absolute;
-  top: 10px; /* Ajusta para alinhar ao fundo verde */
-  left: -30px;
-  width: 120px;
-  height: 120px;
-  background-color: #007BFF;
+  top: -54px; /* Ajusta para alinhar ao fundo verde */
+  left: -5px;
+  width: 85px;
+  height: 85px;
+  background-color: #0072BF;
   border-radius: 50%;
   z-index: 1; /* Círculo azul no fundo */
 }
@@ -67,10 +67,10 @@ ion-toolbar {
 /* Fundo Verde */
 .green-icon {
   position: relative;
-  background-color: #DFF4E5;
+  background-color: #60ff8d;
   border-radius: 15px;
-  padding: 20px;
-  margin: 20px auto;
+  padding: 0px;
+  margin: 1px auto;
   width: 100%;
   max-width: 320px;
   text-align: center;
@@ -80,19 +80,20 @@ ion-toolbar {
 /* Cachorro Sobre o Verde */
 .dog-overlap {
   position: absolute;
-  top: -30px; /* Ajusta o cachorro para sobrepor o fundo verde */
-  left: -50px; /* Move o cachorro para a lateral esquerda */
-  width: 120px;
+  top: -67px; /* Ajusta o cachorro para sobrepor o fundo verde */
+  left: -4px; /* Move o cachorro para a lateral esquerda */
+  width: 70px;
   height: auto;
   z-index: 3; /* Cachorro acima de tudo */
 }
 
 /* Texto dentro do Verde */
 .green-text {
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-left: 50px;
   font-size: 14px;
-  color: #007B55;
-  position: relative;
+  color: #00357b;
+  position:relative;
   z-index: 2;
 }
 
@@ -100,8 +101,8 @@ ion-toolbar {
 .highlight-section h3 {
   font-size: 18px;
   font-weight: bold;
-  color: #007B55;
-  margin-top: 20px;
+  color: #525554;
+  margin-top: -90px;
 }
 
 /* Cards de Pets */

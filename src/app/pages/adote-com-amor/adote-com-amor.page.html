@@ -3,6 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <ion-title>Adote com Amor</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,7 +13,7 @@
     <div class="banner-content">
       <h2>Conectando corações para transformar vidas!</h2>
     </div>
-    <img src="assets/images/dog-preto.png" alt="Cachorro Preto" class="banner-dog">
+    <img src="assets/images/dog-preto.png" alt="Cachorro Preto" class="banner-dog" />
   </div>
 
   <!-- Texto Explicativo -->
@@ -24,37 +25,35 @@
 
   <!-- Seção Adote com Amor -->
   <div class="highlight-section">
-    <div class="blue-circle"></div> <!-- Círculo azul -->
+    <div class="blue-circle"></div>
     <div class="green-icon">
-      <p class="green-text">
-        Esses são alguns PETS que estão para adoção em algumas ONGs parceiras.
-      </p>
+      <p class="green-text">Esses são alguns PETS que estão para adoção em algumas ONGs parceiras.</p>
     </div>
-    <img src="assets/images/2-dog.png" alt="Cachorro 2" class="dog-overlap"> <!-- Cachorro sobre tudo -->
+    <img src="assets/images/2-dog.png" alt="Cachorro 2" class="dog-overlap" />
     <h3>ADOTE COM AMOR</h3>
   </div>
 
   <!-- Cards de Pets -->
-  <div class="cards-container">
-    <ion-card class="pet-card">
-      <img src="assets/images/witney.png" alt="Whitney">
+  <div class="cards-container" *ngIf="pets.length > 0; else noPets">
+    <ion-card class="pet-card" *ngFor="let pet of pets">
+      <img [src]="pet.image" alt="{{ pet.name }}" />
       <ion-card-header>
-        <ion-card-title>Whitney (fêmea)</ion-card-title>
-        <p>2 meses | Golden Retriever</p>
-      </ion-card-header>
-    </ion-card>
-    <ion-card class="pet-card">
-      <img src="assets/images/buggy.png" alt="Buggy">
-      <ion-card-header>
-        <ion-card-title>Buggy (macho)</ion-card-title>
-        <p>7 anos | Dachshund</p>
+        <ion-card-title>{{ pet.name }}</ion-card-title>
+        <p>{{ pet.age }} anos | {{ pet.breed }}</p>
       </ion-card-header>
     </ion-card>
   </div>
 
+  <!-- Mensagem quando não há pets -->
+  <ng-template #noPets>
+    <div class="no-data">
+      <p>Nenhum pet disponível no momento. Por favor, tente novamente mais tarde.</p>
+    </div>
+  </ng-template>
+
   <!-- Botão -->
-  <div class="button-container">
-    <ion-button expand="block" color="success" class="more-button">
+  <div class="button-container" *ngIf="pets.length > 0">
+    <ion-button expand="block" color="success" class="more-button" (click)="loadMorePets()">
       MAIS PETS
     </ion-button>
   </div>

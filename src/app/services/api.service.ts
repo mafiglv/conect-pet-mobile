@@ -6,12 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private apiUrl = 'https://fakestoreapi.com/products'; // API de exemplo
+  private apiUrl = 'https://api.fakepets.com/pets'; // Substitua pela URL real da API
 
   constructor(private http: HttpClient) {}
 
-  // Método GET para buscar produtos
-  getProducts(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  getPets(page: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}?page=${page}`); // Suporte à paginação
   }
 }

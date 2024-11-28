@@ -1,8 +1,41 @@
-/* Menu Superior */
+/* Toolbar */
 ion-toolbar {
-  --background: #fff;
-  --color: #287dd8;
+  --background: #ffffff; /* Fundo completamente branco */
+  --ion-color-base: #ffffff; /* Remove qualquer fundo adicional */
+  --ion-border-color: transparent; /* Remove borda padrão do Ionic */
+  box-shadow: none !important; /* Remove qualquer sombra residual */
+  border: none; /* Remove bordas extras */
+  margin: 0; /* Remove margens extras */
+  z-index: 10; /* Garante que fique acima de outros elementos */
 }
+
+/* Header */
+ion-header {
+  background-color: #ffffff; /* Garante fundo branco para o header */
+  border: none !important; /* Remove borda extra no header */
+  box-shadow: none !important; /* Remove qualquer sombra no header */
+}
+
+/* Título */
+ion-title {
+  font-size: 18px; /* Define tamanho do título */
+  font-weight: bold; /* Negrito para o título */
+  text-align: center; /* Centraliza o título */
+  color: #287dd8; /* Define a cor do texto */
+}
+
+/* Garante que bordas sejam removidas globalmente */
+ion-header::after,
+ion-toolbar::after {
+  display: none;
+  content: none;
+}
+
+/* Remove bordas visíveis no tema padrão */
+ion-toolbar {
+  --ion-toolbar-border-width: 0px;
+}
+
 
 /* Banner Principal */
 .banner {
@@ -107,43 +140,73 @@ ion-toolbar {
 
 /* Cards de Pets */
 .cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: space-around;
-  margin: 20px 0;
+  display: flex; /* Exibe os cards em linha */
+  flex-wrap: nowrap; /* Evita que os cards quebrem para a próxima linha */
+  gap: 15px; /* Espaçamento horizontal entre os cards */
+  justify-content: center; /* Centraliza os cards no container */
+  margin: 20px 10px; /* Margens para espaçamento */
+  align-items: stretch; /* Garante que todos os cards tenham a mesma altura */
 }
 
 .pet-card {
-  width: 45%;
+  flex: 1 1 45%; /* Cada card ocupa 45% da largura do container */
+  max-width: 200px; /* Limita a largura máxima para manter o layout ajustado */
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  text-align: center;
 }
 
 .pet-card img {
   width: 100%;
   border-radius: 10px 10px 0 0;
+  display: block;
 }
 
 .pet-card ion-card-title {
   font-size: 14px;
   font-weight: bold;
+  color: #333;
+  margin: 5px 0;
 }
 
 .pet-card p {
   font-size: 12px;
   color: #555;
+  margin: 5px;
+  line-height: 1.4;
 }
+
 
 /* Botão */
 .button-container {
-  margin: 20px;
+  margin: 20px auto; /* Centraliza o botão abaixo dos cards */
   text-align: center;
 }
 
 .more-button {
-  --background: #007BFF;
-  --background-hover: #0056b3;
-  color: white;
-  font-weight: bold;
+  background-color: #007BFF; /* Cor de fundo azul */
+  border: none; /* Remove qualquer borda */
+  border-radius: 20px; /* Borda arredondada */
+  color: white; /* Cor do texto */
+  font-size: 14px; /* Tamanho do texto */
+  padding: 8px 20px; /* Margens internas ajustadas */
+  font-weight: 600; /* Peso médio do texto */
+  width: auto; /* Ajusta o botão ao tamanho do texto */
+  display: inline-block; /* Garante que o botão se ajuste ao conteúdo */
+  cursor: pointer; /* Cursor de ponteiro */
+  outline: none !important; /* Remove o contorno ao focar/clicar */
+  box-shadow: none !important; /* Remove qualquer sombra residual */
+  appearance: none; /* Remove estilos padrão do navegador */
+  -webkit-appearance: none; /* Remove estilos padrão no Webkit (Safari/Chrome) */
 }
+
+.more-button:hover {
+  background-color: #005bb5; /* Cor mais escura ao passar o mouse */
+}
+
+.more-button:focus {
+  outline: none !important; /* Remove contorno no foco */
+  box-shadow: none !important; /* Remove sombra no foco */
+}
+

@@ -1,13 +1,59 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>nos-ajude</ion-title>
+    <!-- Ícone do Menu Sanduíche -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!-- Título -->
+    <ion-title>Nos Ajude</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">nos-ajude</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <div class="help-screen">
+    <!-- Seção com Fundo Verde e Cachorro -->
+    <div class="highlight-section">
+      <div class="green-icon">
+        <div class="blue-circle"></div>
+        <img src="assets/images/2-dog.png" alt="Cachorro" class="dog-overlap" />
+        <p class="green-text">
+          Nossa barriguinha está vazia e estamos precisando de banho... Nos ajude doando!
+        </p>
+      </div>
+      <h3>Nos Ajude</h3>
+    </div>
+
+    <!-- Cards de Itens para Doação -->
+    <div class="cards-container">
+      <div class="donation-card">
+        <img src="assets/images/witney.png" alt="Rações" />
+        <div class="card-content">
+          <h3>Rações</h3>
+          <p>Para gatos e cães</p>
+          <p>R$ 42 - 74,00</p>
+        </div>
+      </div>
+
+      <div class="donation-card">
+        <img src="assets/images/witney.png" alt="Medicamentos" />
+        <div class="card-content">
+          <h3>Medicamentos</h3>
+          <p>Cuidados para Pets</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botão de Doações -->
+    <div class="button-container">
+      <button class="donate-button">+ Doações</button>
+    </div>
+
+    <!-- Seção "Seja Voluntário" -->
+    <div class="volunteer-section">
+      <div class="volunteer-banner">
+        <p>SEJA VOLUNTÁRIO!</p>
+        <img src="assets/images/witney.png" alt="Voluntário com pet" />
+      </div>
+    </div>
+  </div>
 </ion-content>

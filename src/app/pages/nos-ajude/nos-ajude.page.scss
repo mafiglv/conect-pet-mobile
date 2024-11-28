@@ -1,0 +1,154 @@
+/* Toolbar */
+ion-toolbar {
+  --background: #ffffff; /* Fundo completamente branco */
+  --ion-border-color: transparent; /* Remove borda padrão */
+  box-shadow: none !important; /* Remove qualquer sombra residual */
+  border: none; /* Remove bordas extras */
+}
+
+ion-title {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: #007bff;
+}
+
+/* Tela de Ajuda */
+.help-screen {
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+/* Seção com Fundo Verde e Cachorro */
+.highlight-section {
+  text-align: center;
+  margin: 40px 10px;
+  position: relative;
+}
+
+.green-icon {
+  position: relative;
+  background-color: #53C09D;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  z-index: 2;
+}
+
+.blue-circle {
+  position: absolute;
+  top: -30px;
+  left: -40px;
+  width: 100px;
+  height: 100px;
+  background-color: #0072BF;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.dog-overlap {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  z-index: 3;
+}
+
+.green-text {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+}
+
+/* Título */
+.highlight-section h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #525554;
+  margin-top: 20px;
+}
+
+/* Cards de Itens para Doação */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.donation-card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  text-align: center;
+  padding: 10px;
+}
+
+.donation-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.card-content h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.card-content p {
+  font-size: 12px;
+  color: #555;
+}
+
+/* Botão de Doações */
+.button-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.donate-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.donate-button:hover {
+  background-color: #005bb5;
+}
+
+/* Seção "Seja Voluntário" */
+.volunteer-section {
+  background-color: #dff4e5;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.volunteer-banner p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #007b55;
+  margin-bottom: 10px;
+}
+
+.volunteer-banner img {
+  width: 100%;
+  border-radius: 10px;
+}

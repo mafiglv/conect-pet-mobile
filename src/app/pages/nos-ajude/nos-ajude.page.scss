@@ -1,22 +1,37 @@
 /* Toolbar */
 ion-toolbar {
   --background: #ffffff; /* Fundo completamente branco */
-  --ion-border-color: transparent; /* Remove borda padrão */
+  --ion-color-base: #ffffff; /* Remove qualquer fundo adicional */
+  --ion-border-color: transparent; /* Remove borda padrão do Ionic */
   box-shadow: none !important; /* Remove qualquer sombra residual */
   border: none; /* Remove bordas extras */
+  margin: 0; /* Remove margens extras */
+  z-index: 10; /* Garante que fique acima de outros elementos */
 }
 
-ion-title {
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-  color: #007bff;
+/* Header */
+ion-header {
+  background-color: #ffffff; /* Garante fundo branco para o header */
+  border: none !important; /* Remove borda extra no header */
+  box-shadow: none !important; /* Remove qualquer sombra no header */
+}
+
+/* Remove bordas globais no header e toolbar */
+ion-header::after,
+ion-toolbar::after {
+  display: none;
+  content: none;
+}
+
+/* Remove bordas visíveis no tema padrão */
+ion-toolbar {
+  --ion-toolbar-border-width: 0px;
 }
 
 /* Tela de Ajuda */
 .help-screen {
   padding: 20px;
-  background-color: #ffffff;
+  background-color: #ffffff; /* Fundo branco */
 }
 
 /* Seção com Fundo Verde e Cachorro */
@@ -28,7 +43,7 @@ ion-title {
 
 .green-icon {
   position: relative;
-  background-color: #53C09D;
+  background-color: #53C09D; /* Verde */
   border-radius: 15px;
   padding: 20px;
   margin: 0 auto;
@@ -44,7 +59,7 @@ ion-title {
   left: -40px;
   width: 100px;
   height: 100px;
-  background-color: #0072BF;
+  background-color: #0072BF; /* Azul */
   border-radius: 50%;
   z-index: 1;
 }
@@ -61,7 +76,7 @@ ion-title {
 .green-text {
   margin-top: 40px;
   font-size: 14px;
-  color: #ffffff;
+  color: #ffffff; /* Branco */
   position: relative;
   z-index: 2;
 }
@@ -70,7 +85,7 @@ ion-title {
 .highlight-section h3 {
   font-size: 18px;
   font-weight: bold;
-  color: #525554;
+  color: #525554; /* Cinza */
   margin-top: 20px;
 }
 
@@ -84,9 +99,9 @@ ion-title {
 }
 
 .donation-card {
-  background-color: #ffffff;
+  background-color: #ffffff; /* Fundo branco */
   border-radius: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
   width: 150px;
   text-align: center;
   padding: 10px;
@@ -102,12 +117,12 @@ ion-title {
 .card-content h3 {
   font-size: 16px;
   font-weight: bold;
-  color: #007bff;
+  color: #007bff; /* Azul */
 }
 
 .card-content p {
   font-size: 12px;
-  color: #555;
+  color: #555; /* Cinza */
 }
 
 /* Botão de Doações */
@@ -117,7 +132,7 @@ ion-title {
 }
 
 .donate-button {
-  background-color: #007bff;
+  background-color: #007bff; /* Azul */
   color: white;
   border: none;
   border-radius: 20px;
@@ -129,12 +144,12 @@ ion-title {
 }
 
 .donate-button:hover {
-  background-color: #005bb5;
+  background-color: #005bb5; /* Azul escuro */
 }
 
 /* Seção "Seja Voluntário" */
 .volunteer-section {
-  background-color: #dff4e5;
+  background-color: #dff4e5; /* Verde claro */
   border-radius: 15px;
   padding: 20px;
   text-align: center;
@@ -144,7 +159,7 @@ ion-title {
 .volunteer-banner p {
   font-size: 18px;
   font-weight: bold;
-  color: #007b55;
+  color: #007b55; /* Verde escuro */
   margin-bottom: 10px;
 }
 

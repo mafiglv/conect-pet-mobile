@@ -1,30 +1,39 @@
 /* Toolbar */
 ion-toolbar {
-  --background: #ffffff; /* Fundo branco */
+  --background: #ffffff; /* Fundo branco liso */
   --ion-color-base: #ffffff;
   --ion-border-color: transparent;
-  box-shadow: none !important;
-  border: none;
-  z-index: 10;
+  box-shadow: none !important; /* Remove sombra padrão */
+  border: none; /* Remove bordas extras */
 }
 
-/* Header */
 ion-header {
-  background-color: #ffffff;
+  background-color: #ffffff; /* Fundo branco */
+  box-shadow: none !important; /* Remove sombra residual */
   border: none !important;
-  box-shadow: none !important;
 }
 
-/* Remove bordas padrão */
+/* Garante que bordas e sombras sejam removidas */
 ion-header::after,
 ion-toolbar::after {
   display: none;
+  content: none;
+}
+
+/* Layout Geral */
+ion-content {
+  overflow-y: auto; /* Permite rolagem */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px; /* Adiciona espaçamento ao redor */
 }
 
 /* Seção de Destaque */
 .highlight-section {
   text-align: center;
-  margin: 20px auto;
+  margin: 20px 0;
   position: relative;
 }
 
@@ -65,18 +74,21 @@ ion-toolbar::after {
 .donation-cards,
 .more-donations {
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
+  flex-wrap: wrap; /* Permite quebra em telas menores */
+  gap: 20px;
+  justify-content: center; /* Centraliza os itens */
   margin: 20px auto;
+  width: 100%; /* Ocupa toda a largura */
 }
 
 .donation-card {
-  flex: 1 1 calc(50% - 20px);
-  max-width: 180px;
+  flex: 1 1 calc(50% - 20px); /* Cada card ocupa 50% da largura menos o gap */
+  max-width: 300px; /* Limita o tamanho máximo */
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
   background-color: #fff;
+  text-align: center;
+  padding: 10px;
 }
 
 .donation-card img {
@@ -95,17 +107,47 @@ ion-toolbar::after {
   color: #555;
 }
 
-/* Botão */
+/* Botão para Mais/Menos Doações */
 .button-container {
-  margin-top: auto; /* Posiciona o botão no final */
-  margin-bottom: 20px; /* Espaçamento no final */
+  width: 100%; /* Garante que o botão ocupe toda a largura */
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px; /* Espaço para garantir visibilidade */
+  display: flex;
+  justify-content: center;
 }
 
 .show-more-button {
-  background-color: #0072bf;
-  color: #fff;
+  background-color: #0072bf; /* Cor do botão */
+  color: #fff; /* Cor do texto */
   font-size: 1rem;
   border-radius: 20px;
-  padding: 10px 20px;
+  padding: 15px 30px; /* Botão maior e espaçado */
+  text-align: center;
+  width: auto; /* Ajusta a largura ao texto */
+  margin: 20px auto; /* Garante espaçamento em dispositivos menores */
+  position: relative; /* Garante que o botão siga o fluxo do layout */
+}
+
+/* Media Queries para Tablets e Telas Maiores */
+@media (min-width: 768px) {
+  .donation-card {
+    flex: 1 1 calc(33.33% - 20px); /* Cards ocupam 33% da largura em tablets */
+  }
+
+  .show-more-button {
+    font-size: 1.2rem;
+    padding: 20px 40px; /* Botão maior para tablets */
+  }
+}
+
+@media (min-width: 1024px) {
+  .donation-card {
+    flex: 1 1 calc(25% - 20px); /* Cards ocupam 25% da largura em desktops */
+  }
+
+  .show-more-button {
+    font-size: 1.4rem;
+    padding: 25px 50px; /* Botão ainda maior para desktops */
+  }
 }

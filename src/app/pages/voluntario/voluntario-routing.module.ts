@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
-import { VoluntarioPage } from './voluntario.page';
+import { RouterModule, Routes } from '@angular/router';
+import { VoluntarioPage } from './voluntario.page'; // Nome correto
 
 const routes: Routes = [
   {
     path: '',
-    component: VoluntarioPage
-  }
+    component: VoluntarioPage, // Nome ajustado para a classe correta
+  },
 ];
 
 @NgModule({

@@ -1,169 +1,111 @@
 /* Toolbar */
 ion-toolbar {
-  --background: #ffffff; /* Fundo completamente branco */
-  --ion-color-base: #ffffff; /* Remove qualquer fundo adicional */
-  --ion-border-color: transparent; /* Remove borda padrão do Ionic */
-  box-shadow: none !important; /* Remove qualquer sombra residual */
-  border: none; /* Remove bordas extras */
-  margin: 0; /* Remove margens extras */
-  z-index: 10; /* Garante que fique acima de outros elementos */
+  --background: #ffffff; /* Fundo branco */
+  --ion-color-base: #ffffff;
+  --ion-border-color: transparent;
+  box-shadow: none !important;
+  border: none;
+  z-index: 10;
 }
 
 /* Header */
 ion-header {
-  background-color: #ffffff; /* Garante fundo branco para o header */
-  border: none !important; /* Remove borda extra no header */
-  box-shadow: none !important; /* Remove qualquer sombra no header */
+  background-color: #ffffff;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-/* Remove bordas globais no header e toolbar */
+/* Remove bordas padrão */
 ion-header::after,
 ion-toolbar::after {
   display: none;
-  content: none;
 }
 
-/* Remove bordas visíveis no tema padrão */
-ion-toolbar {
-  --ion-toolbar-border-width: 0px;
-}
-
-/* Tela de Ajuda */
-.help-screen {
-  padding: 20px;
-  background-color: #ffffff; /* Fundo branco */
-}
-
-/* Seção com Fundo Verde e Cachorro */
+/* Seção de Destaque */
 .highlight-section {
   text-align: center;
-  margin: 40px 10px;
+  margin: 20px auto;
   position: relative;
-}
-
-.green-icon {
-  position: relative;
-  background-color: #53C09D; /* Verde */
-  border-radius: 15px;
-  padding: 20px;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 320px;
-  text-align: center;
-  z-index: 2;
 }
 
 .blue-circle {
   position: absolute;
-  top: -30px;
-  left: -40px;
-  width: 100px;
-  height: 100px;
-  background-color: #0072BF; /* Azul */
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 70px;
+  background-color: #0072bf;
   border-radius: 50%;
-  z-index: 1;
 }
 
 .dog-overlap {
   position: absolute;
-  top: -40px;
+  top: -60px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  z-index: 3;
+  width: 100px;
+  height: auto;
 }
 
-.green-text {
-  margin-top: 40px;
-  font-size: 14px;
-  color: #ffffff; /* Branco */
-  position: relative;
-  z-index: 2;
+.highlight-section h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 30px;
 }
 
-/* Título */
-.highlight-section h3 {
-  font-size: 18px;
-  font-weight: bold;
-  color: #525554; /* Cinza */
-  margin-top: 20px;
+.highlight-text {
+  font-size: 1rem;
+  color: #555;
+  margin: 10px auto;
+  max-width: 80%;
 }
 
-/* Cards de Itens para Doação */
-.cards-container {
+/* Cards de Doações */
+.donation-cards,
+.more-donations {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
-  margin: 20px 0;
+  margin: 20px auto;
 }
 
 .donation-card {
-  background-color: #ffffff; /* Fundo branco */
-  border-radius: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
-  width: 150px;
-  text-align: center;
-  padding: 10px;
+  flex: 1 1 calc(50% - 20px);
+  max-width: 180px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 }
 
 .donation-card img {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  border-radius: 10px 10px 0 0;
 }
 
-.card-content h3 {
-  font-size: 16px;
+.donation-card ion-card-title {
+  font-size: 1rem;
   font-weight: bold;
-  color: #007bff; /* Azul */
+  color: #333;
 }
 
-.card-content p {
-  font-size: 12px;
-  color: #555; /* Cinza */
+.donation-card p {
+  font-size: 0.9rem;
+  color: #555;
 }
 
-/* Botão de Doações */
+/* Botão */
 .button-container {
+  margin-top: auto; /* Posiciona o botão no final */
+  margin-bottom: 20px; /* Espaçamento no final */
   text-align: center;
-  margin-bottom: 30px;
 }
 
-.donate-button {
-  background-color: #007bff; /* Azul */
-  color: white;
-  border: none;
+.show-more-button {
+  background-color: #0072bf;
+  color: #fff;
+  font-size: 1rem;
   border-radius: 20px;
   padding: 10px 20px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.donate-button:hover {
-  background-color: #005bb5; /* Azul escuro */
-}
-
-/* Seção "Seja Voluntário" */
-.volunteer-section {
-  background-color: #dff4e5; /* Verde claro */
-  border-radius: 15px;
-  padding: 20px;
-  text-align: center;
-  position: relative;
-}
-
-.volunteer-banner p {
-  font-size: 18px;
-  font-weight: bold;
-  color: #007b55; /* Verde escuro */
-  margin-bottom: 10px;
-}
-
-.volunteer-banner img {
-  width: 100%;
-  border-radius: 10px;
 }

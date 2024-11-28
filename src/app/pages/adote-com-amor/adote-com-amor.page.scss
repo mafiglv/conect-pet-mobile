@@ -16,13 +16,6 @@ ion-header {
   box-shadow: none !important; /* Remove qualquer sombra no header */
 }
 
-/* Título */
-ion-title {
-  font-size: 18px; /* Define tamanho do título */
-  font-weight: bold; /* Negrito para o título */
-  text-align: center; /* Centraliza o título */
-  color: #287dd8; /* Define a cor do texto */
-}
 
 /* Garante que bordas sejam removidas globalmente */
 ion-header::after,
@@ -49,13 +42,12 @@ ion-toolbar {
 
 .banner-content {
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
 .banner h2 {
   font-size: 18px;
   color: #ffffff;
-  margin: 10;
   font-weight: bold;
 }
 
@@ -70,7 +62,7 @@ ion-toolbar {
 
 /* Texto Explicativo */
 .text-container {
-  padding: 15px;
+  padding: 20px;
   font-size: 14px;
   line-height: 1.2;
   color: #555;
@@ -81,7 +73,7 @@ ion-toolbar {
 /* Seção Adote com Amor */
 .highlight-section {
   text-align: center;
-  margin: 50px 10px;
+  margin: 40px 10px;
   position: relative;
 }
 
@@ -173,40 +165,39 @@ ion-toolbar {
 .pet-card p {
   font-size: 12px;
   color: #555;
-  margin: 5px;
+  margin: 1px;
   line-height: 1.4;
 }
 
 
 /* Botão */
 .button-container {
-  margin: 20px auto; /* Centraliza o botão abaixo dos cards */
+  margin: 0px auto; /* Centraliza o botão abaixo dos cards */
   text-align: center;
 }
 
 .more-button {
-  background-color: #007BFF; /* Cor de fundo azul */
-  border: none; /* Remove qualquer borda */
+  background-color: #53C09D; /* Cor de fundo azul */
   border-radius: 20px; /* Borda arredondada */
-  color: white; /* Cor do texto */
+  color: rgb(37, 36, 36); /* Cor do texto */
   font-size: 14px; /* Tamanho do texto */
-  padding: 8px 20px; /* Margens internas ajustadas */
+  padding: 2px 10px; /* Margens internas ajustadas */
   font-weight: 600; /* Peso médio do texto */
   width: auto; /* Ajusta o botão ao tamanho do texto */
   display: inline-block; /* Garante que o botão se ajuste ao conteúdo */
   cursor: pointer; /* Cursor de ponteiro */
-  outline: none !important; /* Remove o contorno ao focar/clicar */
-  box-shadow: none !important; /* Remove qualquer sombra residual */
+  outline: none ; /* Remove o contorno ao focar/clicar */
+  box-shadow: none ; /* Remove qualquer sombra residual */
   appearance: none; /* Remove estilos padrão do navegador */
   -webkit-appearance: none; /* Remove estilos padrão no Webkit (Safari/Chrome) */
 }
 
 .more-button:hover {
-  background-color: #005bb5; /* Cor mais escura ao passar o mouse */
+  background-color: #f1f1f1; /* Cor mais escura ao passar o mouse */
 }
 
 .more-button:focus {
-  outline: none !important; /* Remove contorno no foco */
-  box-shadow: none !important; /* Remove sombra no foco */
+  outline: none ; /* Remove contorno no foco */
+  box-shadow: none ; /* Remove sombra no foco */
 }
 

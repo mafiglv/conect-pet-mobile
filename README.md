@@ -1,4 +1,4 @@
-Conect Pet - Mobile| Conectando corações para transformar vidas!🐾
+# Conect Pet - Mobile| Conectando corações para transformar vidas!🐾
 Sua plataforma completa para adoção, voluntariado e doações.
 
 ## ✨ Sobre o ConectPet:

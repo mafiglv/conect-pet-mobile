@@ -7,3 +7,17 @@ html, body, ion-app, ion-content {
   align-items: center;
   background-color: #ffffff; /* Cor de fundo */
 }
+ion-toolbar {
+  --background: #ffffff !important; /* Fundo branco */
+  --box-shadow: none !important;    /* Remove sombra */
+  --border-width: 0px !important;   /* Remove borda */
+}
+
+ion-header {
+  --background: #ffffff !important;
+  --ion-toolbar-shadow: none !important; /* Remove sombra global */
+}
+/* Define Poppins como fonte padrão */
+:root {
+  --ion-font-family: 'Poppins', sans-serif;
+}

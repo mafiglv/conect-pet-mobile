@@ -1,19 +1,88 @@
-ion-content {
-  --background: #ffffff; /* Fundo branco */
-  display: block; /* Garante que o ion-content não interfira na centralização */
-  position: relative; /* Posiciona o conteúdo relativamente à tela */
-  height: 100vh; /* Ocupa 100% da altura da tela */
+/* Estilização geral */
+.home-content {
+  --background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh; /* Tela cheia */
+  padding: 0;
+  margin: 0;
 }
 
-.logo-container {
-  position: absolute; /* Permite centralização absoluta */
-  top: 50%; /* Move o topo do container para 50% da altura da tela */
-  left: 50%; /* Move o lado esquerdo para 50% da largura da tela */
-  transform: translate(-50%, -50%); /* Centraliza o elemento corrigindo o deslocamento */
-  text-align: center; /* Centraliza o texto (se necessário) */
+/* Container da landing page */
+.landing-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.logo {
-  width: 200px; /* Ajuste o tamanho da logo */
-  height: auto; /* Mantém a proporção da logo */
+/* Estilo do banner */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 75%; /* O banner ocupa metade da tela */
+  background: #f3f3f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.banner-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem preencha o banner */
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%; /* Garante espaçamento nas laterais */
+  max-width: 1000px;
+  height: 100%;
+  padding: 16px 16px;
+}
+
+/* Estilo do texto no banner */
+.text-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Alinha o texto à esquerda */
+  color: #ffffff;
+  z-index: 2;
+}
+
+.text-content h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: left;
+  max-width: 400px;
+}
+
+/* Estilo da imagem do cachorro */
+.image-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dog-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
 }

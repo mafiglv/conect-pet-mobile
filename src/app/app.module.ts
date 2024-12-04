@@ -21,7 +21,7 @@ import { FiltroPetsPipe } from './pipes/filtro-pets.pipe';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule 
+    HttpClientModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

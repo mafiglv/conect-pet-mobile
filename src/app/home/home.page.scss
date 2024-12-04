@@ -5,55 +5,58 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  height: 100vh; /* Tela cheia */
   padding: 0;
   margin: 0;
+  height: 100vh; /* Tela cheia */
 }
 
-/* Container da landing page */
+/* Container principal */
 .landing-container {
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0px;
 }
 
-/* Estilo do banner */
-.banner {
+/* Seção azul (com azul.png) */
+.blue-section {
   position: relative;
-  width: 100%;
-  height: 75%; /* O banner ocupa metade da tela */
-  background: #f3f3f3;
+  width: 100%; /* Ocupa toda a largura disponível */
+  max-width: 1000px; /* Limita a largura máxima */
+  margin: 0px auto 32px auto; /* Centraliza horizontalmente e cria espaçamento inferior */
+  aspect-ratio: 16 / 9; /* Mantém a proporção do azul.png */
+  overflow: hidden; /* Garante que o conteúdo não extrapole os limites */
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  border-radius: 12px;
+  border-radius: 12px; /* Bordas arredondadas */
 }
 
-.banner-bg {
+/* Imagem de fundo azul.png */
+.blue-bg {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Garante que a imagem preencha o banner */
+  width: 90%;
+  height: 90%;
+  object-fit: contain; /* Evita cortes na imagem */
   z-index: 1;
 }
 
-.banner-content {
+/* Wrapper para organizar texto e imagem */
+.content-wrapper {
   position: relative;
   z-index: 2;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%; /* Garante espaçamento nas laterais */
-  max-width: 1000px;
-  height: 100%;
-  padding: 16px 16px;
+  padding: 16px;
 }
 
-/* Estilo do texto no banner */
+/* Texto dentro do azul.png */
 .text-content {
   flex: 1;
   display: flex;
@@ -61,28 +64,33 @@
   justify-content: center;
   align-items: flex-start; /* Alinha o texto à esquerda */
   color: #ffffff;
-  z-index: 2;
 }
 
 .text-content h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   line-height: 1.2;
-  text-align: left;
-  max-width: 400px;
+  max-width: 40px;
 }
 
-/* Estilo da imagem do cachorro */
-.image-content {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+/* Imagem do cachorro ajustável */
 .dog-image {
-  width: 100%;
-  max-width: 300px;
+  position: absolute;
+  bottom: 3%; /* Ajuste vertical */
+  right: 0%; /* Ajuste horizontal */
+  width: auto;
+  max-width: 170px; /* Tamanho máximo do cachorro */
   height: auto;
-  object-fit: contain;
+  object-fit: contain; /* Mantém proporção do cachorro */
+  z-index: 2;
+}
+
+/* Texto descritivo */
+.description {
+  font-size: 1rem;
+  color: #333333;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 800px; /* Limita a largura */
+  margin: 25px;
 }

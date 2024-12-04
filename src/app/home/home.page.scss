@@ -26,8 +26,8 @@
   position: relative;
   width: 100%; /* Ocupa toda a largura disponível */
   max-width: 1000px; /* Limita a largura máxima */
-  margin: 0px auto 32px auto; /* Centraliza horizontalmente e cria espaçamento inferior */
-  aspect-ratio: 16 / 9; /* Mantém a proporção do azul.png */
+  margin: 0 auto 32px auto; /* Centraliza horizontalmente */
+  aspect-ratio: 16 / 9; /* Mantém a proporção de azul.png */
   overflow: hidden; /* Garante que o conteúdo não extrapole os limites */
   display: flex;
   align-items: center;
@@ -75,15 +75,18 @@
 
 /* Imagem do cachorro ajustável */
 .dog-image {
-  position: absolute;
-  bottom: 3%; /* Ajuste vertical */
-  right: 0%; /* Ajuste horizontal */
+  position:absolute;
+  right: 5%; /* Alinha o cachorro à direita dentro do azul.png */
+  bottom: 5%; /* Alinha o cachorro na parte inferior */
   width: auto;
-  max-width: 170px; /* Tamanho máximo do cachorro */
-  height: auto;
-  object-fit: contain; /* Mantém proporção do cachorro */
-  z-index: 2;
+  height: 90%; /* O cachorro terá altura igual a 90% do azul.png */
+  object-fit: contain; /* Mantém a proporção do cachorro */
+  max-height: 100%; /* Garante que o cachorro não extrapole a altura do azul.png */
+  z-index: 2; /* Garante que o cachorro esteja acima do azul.png */
 }
+
+
+
 
 /* Texto descritivo */
 .description {
@@ -94,3 +97,48 @@
   max-width: 800px; /* Limita a largura */
   margin: 25px;
 }
+/* Rodapé de navegação */
+.navigation-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #ffffff; /* Fundo branco */
+  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  z-index: 10; /* Acima do conteúdo */
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: space-between; /* Botões distribuídos nos lados */
+  align-items: center;
+  padding: 8px 16px;
+}
+
+/* Botões no rodapé */
+.nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.nav-button ion-icon {
+  margin-right: 8px; /* Espaço entre o ícone e o texto */
+  font-size: 1.2rem;
+}
+/* Estilização do botão de navegação */
+.navigate-button {
+  margin-top: 20px; /* Espaçamento acima do botão */
+  display: flex;
+  justify-content: center; /* Centraliza o botão */
+}
+
+ion-button {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #0a7dca;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+

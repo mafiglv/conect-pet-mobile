@@ -1,5 +1,5 @@
 .nos-ajude-container {
-  padding: 16px;
+  padding: 0px;
   text-align: center;
   height: calc(100vh - 112px); /* Espaço total menos toolbar (56px) e rodapé (56px) */
   overflow-y: auto; /* Habilita rolagem caso o conteúdo seja maior que o espaço disponível */
@@ -23,7 +23,7 @@
     height: 120px;
     margin: 0 auto 16px;
     border-radius: 50%;
-    background-color: #0078d4; /* Azul na paleta */
+    background-color: #ffffff; /* Azul na paleta */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,27 +36,27 @@
     }
   }
 
-  /* Texto dentro da imagem verde */
-  .green-banner {
+  /* Banner azul centralizado */
+  .blue-banner {
     position: relative;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    border-radius: 8px;
-    overflow: hidden;
-    background: url('/assets/images/verde.png') no-repeat center center;
-    background-size: cover;
+    width: 90%; /* Banner ocupa 80% da largura */
+    max-width: 800px; /* Limita a largura máxima */
+    margin: 10px auto; /* Espaço superior/inferior e centraliza horizontalmente */
+    border-radius: 16px; /* Bordas arredondadas */
+    background-color: #0078d4; /* Azul da paleta */
+    padding: 5px; /* Espaçamento interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
+    color: #ffffff; /* Texto branco */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    .green-banner-text {
-      position: absolute;
-      top: 50%; /* Centraliza verticalmente */
-      left: 50%; /* Centraliza horizontalmente */
-      transform: translate(-50%, -50%); /* Ajusta para o centro */
-      width: 90%;
-      text-align: center;
-      color: #ffffff;
+    .blue-banner-text {
       font-size: 1rem;
       font-weight: bold;
+      line-height: 1.5;
+      text-align: center;
+      margin: 0;
     }
   }
 }

@@ -3,19 +3,20 @@
     <div class="nos-ajude-container">
       <!-- Header da página -->
       <div class="header">
-        <!-- Título e Círculo Azul -->
-        <h1>NOS AJUDE</h1>
         <div class="circle">
           <img src="assets/images/dog.png" alt="Dog Header" class="header-image" />
         </div>
+        <h1>NOS AJUDE</h1>
 
-        <!-- Texto na Imagem Verde -->
-        <div class="green-banner">
-          <p>Nossa barriguinha está vazia e estamos precisando de banho... Nos ajude doando!</p>
+        <!-- Banner azul -->
+        <div class="blue-banner">
+          <div class="blue-banner-text">
+            Nossa barriguinha está vazia e estamos precisando de banho... Nos ajude doando!
+          </div>
         </div>
       </div>
 
-      <!-- Lista de Doações -->
+      <!-- Lista de doações -->
       <div class="donations-list">
         <div *ngFor="let donation of donations | slice: 0:visibleDonations" class="donation-card">
           <img [src]="donation.image" [alt]="donation.name" class="donation-image" />
@@ -25,10 +26,10 @@
         </div>
       </div>
 
-      <!-- Botão de Controle -->
+      <!-- Botão de controle -->
       <div class="controls">
         <ion-button expand="block" color="primary" (click)="toggleDonations()">
-          {{ showMore ? 'Mostrar Menos Doações' : 'Mais Doações' }}
+          {{ showMore ? 'Mostrar Menos' : 'Mais Doações' }}
         </ion-button>
       </div>
     </div>

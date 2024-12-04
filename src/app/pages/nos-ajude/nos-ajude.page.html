@@ -1,60 +1,36 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Nos Ajude</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header-footer>
+  <ion-content>
+    <div class="nos-ajude-container">
+      <!-- Header da página -->
+      <div class="header">
+        <!-- Título e Círculo Azul -->
+        <h1>NOS AJUDE</h1>
+        <div class="circle">
+          <img src="assets/images/dog.png" alt="Dog Header" class="header-image" />
+        </div>
 
-<ion-content>
-  <!-- Seção de Destaque -->
-  <div class="highlight-section">
-    <div class="blue-circle"></div>
-    <img src="assets/images/dog-help.png" alt="Dog Ajuda" class="dog-overlap" />
-    <h2>Nos Ajude</h2>
-    <p class="highlight-text">
-      Nossa barriguinha está vazia e estamos precisando de banho... Nos ajude doando!
-    </p>
-  </div>
+        <!-- Texto na Imagem Verde -->
+        <div class="green-banner">
+          <p>Nossa barriguinha está vazia e estamos precisando de banho... Nos ajude doando!</p>
+        </div>
+      </div>
 
-  <!-- Cards de Doações -->
-  <div class="donation-cards">
-    <ion-card class="donation-card">
-      <img src="assets/images/racoes.png" alt="Rações" />
-      <ion-card-header>
-        <ion-card-title>Rações</ion-card-title>
-        <p>Para cães e gatos</p>
-        <p>R$15,00 - R$60,00</p>
-      </ion-card-header>
-    </ion-card>
+      <!-- Lista de Doações -->
+      <div class="donations-list">
+        <div *ngFor="let donation of donations | slice: 0:visibleDonations" class="donation-card">
+          <img [src]="donation.image" [alt]="donation.name" class="donation-image" />
+          <h2>{{ donation.name }}</h2>
+          <p>{{ donation.description }}</p>
+          <p><strong>{{ donation.price }}</strong></p>
+        </div>
+      </div>
 
-    <ion-card class="donation-card">
-      <img src="assets/images/medicamentos.png" alt="Medicamentos" />
-      <ion-card-header>
-        <ion-card-title>Medicamentos</ion-card-title>
-        <p>Vacinas, Antipulgas</p>
-        <p>Valor variável</p>
-      </ion-card-header>
-    </ion-card>
-  </div>
-
-  <!-- Lista Expandida de Doações -->
-  <div *ngIf="showMore" class="more-donations">
-    <ion-card class="donation-card" *ngFor="let item of moreDonations">
-      <img [src]="item.image" [alt]="item.title" />
-      <ion-card-header>
-        <ion-card-title>{{ item.title }}</ion-card-title>
-        <p>{{ item.description }}</p>
-        <p>{{ item.price }}</p>
-      </ion-card-header>
-    </ion-card>
-  </div>
-
-  <!-- Botão para Mais/Menos Doações -->
-  <div class="button-container">
-    <ion-button expand="block" color="primary" (click)="toggleDonations()" class="show-more-button">
-      {{ showMore ? 'Mostrar Menos' : '+ Doações' }}
-    </ion-button>
-  </div>
-</ion-content>
+      <!-- Botão de Controle -->
+      <div class="controls">
+        <ion-button expand="block" color="primary" (click)="toggleDonations()">
+          {{ showMore ? 'Mostrar Menos Doações' : 'Mais Doações' }}
+        </ion-button>
+      </div>
+    </div>
+  </ion-content>
+</app-header-footer>

@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'seja-voluntario', loadChildren: () => import('./pages/voluntario/voluntario.module').then(m => m.VoluntarioPageModule) },
 ];
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule],

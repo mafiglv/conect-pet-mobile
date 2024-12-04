@@ -1,31 +1,55 @@
 .adote-container {
-  padding: 16px;
+  padding: 1px;
   text-align: center;
   height: calc(100vh - 112px); /* Espaço total menos toolbar (56px) e rodapé (56px) */
   overflow-y: auto; /* Habilita rolagem caso o conteúdo seja maior que o espaço disponível */
 }
 
 .header {
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 
-  .header-image {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 16px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
+  /* Estilo do título */
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    margin: 0;
+    text-align:center;
+    margin: 16px 16px;
     color: rgb(0, 138, 73);
   }
 
-  p {
-    font-size: 1rem;
-    color: #033a68;
+  /* Cachorro dentro do círculo azul */
+  .circle {
+    width: 120px;
+    height: 0px;
+    margin: 1px;
+    border-radius: 75%;
+    background-color: #0078d4; /* Azul na paleta */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .header-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  /* Texto dentro da imagem verde */
+  .green-banner {
+    background: url('/assets/images/verde.png') no-repeat center center;
+    background-size:cover;
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 16px;
+
+    p {
+      font-size: 1rem;
+      color: #ffffff;
+      font-weight: bold;
+      margin: 0;
+    }
   }
 }
 
@@ -70,7 +94,7 @@
 
 .controls {
   margin-top: 16px;
-  padding-bottom: 56px; /* Adiciona espaço para evitar sobreposição pelo rodapé */
+  padding-bottom: 56px; 
 
   ion-button {
     font-size: 1rem;

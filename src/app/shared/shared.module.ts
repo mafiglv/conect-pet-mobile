@@ -7,8 +7,7 @@ import { HeaderFooterComponent } from '../components/header-footer/header-footer
   declarations: [HeaderFooterComponent],
   imports: [
     CommonModule,
-    IonicModule // Necessário para componentes do Ionic
-  ],
+    IonicModule   ],
   exports: [HeaderFooterComponent] // Exporta o componente para ser reutilizado
 })
 export class SharedModule {}

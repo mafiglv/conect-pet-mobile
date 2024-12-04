@@ -1,208 +1,80 @@
-/* Toolbar */
-ion-toolbar {
-  --background: #ffffff; /* Fundo completamente branco */
-  --ion-color-base: #ffffff; /* Remove qualquer fundo adicional */
-  --ion-border-color: transparent; /* Remove borda padrão do Ionic */
-  box-shadow: none !important; /* Remove qualquer sombra residual */
-  border: none; /* Remove bordas extras */
-  margin: 0; /* Remove margens extras */
-  z-index: 10; /* Garante que fique acima de outros elementos */
-}
-
-/* Header */
-ion-header {
-  background-color: #ffffff; /* Garante fundo branco para o header */
-  border: none !important; /* Remove borda extra no header */
-  box-shadow: none !important; /* Remove qualquer sombra no header */
-}
-
-
-/* Garante que bordas sejam removidas globalmente */
-ion-header::after,
-ion-toolbar::after {
-  display: none;
-  content: none;
-}
-
-/* Remove bordas visíveis no tema padrão */
-ion-toolbar {
-  --ion-toolbar-border-width: 0px;
-}
-
-
-/* Banner Principal */
-.banner {
-  position: relative;
-  background-color: #287dd8;
-  border-radius: 15px;
-  padding: 25px;
-  margin: 30px 10px;
-  text-align:left;
-}
-
-.banner-content {
-  position: relative;
-  z-index: 10;
-}
-
-.banner h2 {
-  font-size: 18px;
-  color: #ffffff;
-  font-weight: bold;
-}
-
-.banner-dog {
-  position: absolute;
-  right: -25px;
-  bottom: -38px;
-  width: 150px;
-  z-index: 1;
-  transform:rotate(0deg);
-}
-
-/* Texto Explicativo */
-.text-container {
-  padding: 20px;
-  font-size: 14px;
-  line-height: 1.2;
-  color: #555;
-  margin: 20px;
-  text-align: justify;
-}
-
-/* Seção Adote com Amor */
-.highlight-section {
+.adote-container {
+  padding: 16px;
   text-align: center;
-  margin: 40px 10px;
-  position: relative;
+  height: calc(100vh - 112px); /* Espaço total menos toolbar (56px) e rodapé (56px) */
+  overflow-y: auto; /* Habilita rolagem caso o conteúdo seja maior que o espaço disponível */
 }
 
-/* Círculo Azul */
-.blue-circle {
-  position: absolute;
-  top: -54px; /* Ajusta para alinhar ao fundo verde */
-  left: -5px;
-  width: 85px;
-  height: 85px;
-  background-color: #0072BF;
-  border-radius: 50%;
-  z-index: 1; /* Círculo azul no fundo */
+.header {
+  margin-bottom: 16px;
+
+  .header-image {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+    color: rgb(0, 138, 73);
+  }
+
+  p {
+    font-size: 1rem;
+    color: #033a68;
+  }
 }
 
-/* Fundo Verde */
-.green-icon {
-  position: relative;
-  background-color: #53C09D;
-  border-radius: 15px;
-  padding: 0px;
-  margin: 1px auto;
-  width: 100%;
-  max-width: 320px;
-  text-align: center;
-  z-index: 2; /* Fundo verde acima do círculo azul */
+.pets-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+
+  .pet-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    .pet-image {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: bold;
+      margin: 4px 0;
+      span {
+        font-weight: normal;
+        font-size: 0.9rem;
+        color: #777;
+      }
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 4px 0;
+    }
+  }
 }
 
-/* Cachorro Sobre o Verde */
-.dog-overlap {
-  position: absolute;
-  top: -67px; /* Ajusta o cachorro para sobrepor o fundo verde */
-  left: -4px; /* Move o cachorro para a lateral esquerda */
-  width: 70px;
-  height: auto;
-  z-index: 3; /* Cachorro acima de tudo */
+.controls {
+  margin-top: 16px;
+  padding-bottom: 56px; /* Adiciona espaço para evitar sobreposição pelo rodapé */
+
+  ion-button {
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(0, 138, 73);
+  }
 }
-
-/* Texto dentro do Verde */
-.green-text {
-  margin-top: 5px;
-  margin-left: 50px;
-  font-size: 14px;
-  color: #232323;
-  position:relative;
-  z-index: 2;
-}
-
-/* Título */
-.highlight-section h3 {
-  font-size: 17px;
-  font-weight: bold;
-  color: #525554;
-  margin-top: -85px;
-}
-
-/* Cards de Pets */
-.cards-container {
-  display: flex; /* Exibe os cards em linha */
-  flex-wrap: nowrap; /* Evita que os cards quebrem para a próxima linha */
-  gap: 15px; /* Espaçamento horizontal entre os cards */
-  justify-content: center; /* Centraliza os cards no container */
-  margin: 20px 10px; /* Margens para espaçamento */
-  align-items: stretch; /* Garante que todos os cards tenham a mesma altura */
-}
-
-.pet-card {
-  flex: 1 1 45%; /* Cada card ocupa 45% da largura do container */
-  max-width: 200px; /* Limita a largura máxima para manter o layout ajustado */
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  text-align: center;
-}
-
-.no-data {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 16px;
-  color: #555;
-}
-
-.pet-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px 10px 0 0;
-  object-fit: cover; /* Garante que a imagem ocupe o espaço correto */
-}
-
-.pet-card ion-card-title {
-  font-size: 14px;
-  font-weight: bold;
-  color: #333;
-}
-
-.pet-card p {
-  font-size: 12px;
-  color: #555;
-}
-
-
-/* Botão */
-.button-container {
-  margin: 0px auto; /* Centraliza o botão abaixo dos cards */
-  text-align: center;
-}
-
-.more-button {
-  background-color: #53C09D; /* Cor de fundo azul */
-  border-radius: 20px; /* Borda arredondada */
-  color: rgb(37, 36, 36); /* Cor do texto */
-  font-size: 14px; /* Tamanho do texto */
-  padding: 2px 10px; /* Margens internas ajustadas */
-  font-weight: 600; /* Peso médio do texto */
-  width: auto; /* Ajusta o botão ao tamanho do texto */
-  display: inline-block; /* Garante que o botão se ajuste ao conteúdo */
-  cursor: pointer; /* Cursor de ponteiro */
-  outline: none ; /* Remove o contorno ao focar/clicar */
-  box-shadow: none ; /* Remove qualquer sombra residual */
-  appearance: none; /* Remove estilos padrão do navegador */
-  -webkit-appearance: none; /* Remove estilos padrão no Webkit (Safari/Chrome) */
-}
-
-.more-button:hover {
-  background-color: #f1f1f1; /* Cor mais escura ao passar o mouse */
-}
-
-.more-button:focus {
-  outline: none ; /* Remove contorno no foco */
-  box-shadow: none ; /* Remove sombra no foco */
-}
-

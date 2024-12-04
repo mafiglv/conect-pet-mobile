@@ -1,60 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Adote com Amor</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header-footer>
+  <ion-content>
+    <div class="adote-container">
+      <!-- Header da página -->
+      <div class="header">
+        <img src="assets/images/dog.png" alt="Dog Header" class="header-image" />
+        <h1>ADOTE COM AMOR</h1>
+        <p>Esses são alguns PETS que estão para adoção em algumas ONGs parceiras.</p>
+      </div>
 
-<ion-content>
-  <!-- Banner Principal -->
-  <div class="banner">
-    <div class="banner-content">
-      <h2>Conectando corações para transformar vidas!</h2>
+      <!-- Lista de pets -->
+      <div class="pets-list">
+        <div *ngFor="let pet of pets | slice: 0:visiblePets" class="pet-card">
+          <img [src]="pet.image" [alt]="pet.name" class="pet-image" />
+          <h2>{{ pet.name }} <span>({{ pet.gender }})</span></h2>
+          <p>{{ pet.age }} meses</p>
+          <p>{{ pet.breed }}</p>
+        </div>
+      </div>
+
+      <!-- Botão de controle -->
+      <div class="controls">
+        <ion-button expand="block" color="primary" (click)="togglePets()">
+          {{ showMore ? 'Mostrar Menos' : 'Mais Pets' }}
+        </ion-button>
+      </div>
     </div>
-    <img src="assets/images/dog-preto.png" alt="Cachorro Preto" class="banner-dog" />
-  </div>
-
-  <!-- Texto Explicativo -->
-  <div class="text-container">
-    <p>
-      Quer ajudar a transformar a vida dos animais de rua? Descubra a ONG que mais combina com você, participe de suas ações e faça a diferença sendo um voluntário. Juntos, podemos oferecer uma nova chance para quem mais precisa.
-    </p>
-  </div>
-
-  <!-- Seção Adote com Amor -->
-  <div class="highlight-section">
-    <div class="blue-circle"></div>
-    <div class="green-icon">
-      <p class="green-text">Esses são alguns PETS que estão para adoção em algumas ONGs parceiras.</p>
-    </div>
-    <img src="assets/images/2-dog.png" alt="Cachorro 2" class="dog-overlap" />
-    <h3>ADOTE COM AMOR</h3>
-  </div>
-
-  <!-- Cards de Pets -->
-  <div class="cards-container" *ngIf="pets.length > 0; else noPets">
-    <ion-card class="pet-card" *ngFor="let pet of pets">
-      <img [src]="pet.image" alt="{{ pet.name }}" />
-      <ion-card-header>
-        <ion-card-title>{{ pet.name }}</ion-card-title>
-        <p>{{ pet.age }} anos | {{ pet.breed }}</p>
-      </ion-card-header>
-    </ion-card>
-  </div>
-
-  <!-- Mensagem quando não há pets -->
-  <ng-template #noPets>
-    <div class="no-data">
-      <p>Nenhum pet disponível no momento. Por favor, tente novamente mais tarde.</p>
-    </div>
-  </ng-template>
-
-  <!-- Botão -->
-  <div class="button-container" *ngIf="pets.length > 0">
-    <ion-button expand="block" color="success" class="more-button" (click)="loadMorePets()">
-      MAIS PETS
-    </ion-button>
-  </div>
-</ion-content>
+  </ion-content>
+</app-header-footer>

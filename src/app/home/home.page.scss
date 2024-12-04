@@ -77,9 +77,9 @@
 .dog-image {
   position:absolute;
   right: 5%; /* Alinha o cachorro à direita dentro do azul.png */
-  bottom: 5%; /* Alinha o cachorro na parte inferior */
+  bottom: 7%; /* Alinha o cachorro na parte inferior */
   width: auto;
-  height: 90%; /* O cachorro terá altura igual a 90% do azul.png */
+  height: 85%; /* O cachorro terá altura igual a 90% do azul.png */
   object-fit: contain; /* Mantém a proporção do cachorro */
   max-height: 100%; /* Garante que o cachorro não extrapole a altura do azul.png */
   z-index: 2; /* Garante que o cachorro esteja acima do azul.png */

@@ -3,20 +3,14 @@
     <div class="adote-container">
       <!-- Header da página -->
       <div class="header">
-        <!-- Título acima de tudo -->
         <h1>ADOTE COM AMOR</h1>
-
-        <!-- Cachorro dentro do círculo azul -->
         <div class="circle">
           <img src="assets/images/2-dog.png" alt="Dog Header" class="header-image" />
         </div>
-
-        <!-- Texto dentro da imagem verde -->
         <div class="green-banner">
           <p [appExpandableText]="50">
             Esses são alguns dos PETS que estão para adoção em algumas ONGs parceiras. Eles precisam do seu amor e carinho. Clique para saber mais sobre cada um deles.
           </p>
-          
         </div>
       </div>
 
@@ -29,12 +23,28 @@
         ></ion-input>
       </ion-item>
 
-      <!-- Lista de pets -->
-      <div class="pets-list">
-        <!-- Aplicando a FiltroPetsPipe -->
+      <!-- Botões para alternar visualização -->
+      <div class="view-controls">
+        <ion-button (click)="isGridView = !isGridView">
+          {{ isGridView ? 'Visualizar como Lista' : 'Visualizar como Grade' }}
+        </ion-button>
+      </div>
+
+      <!-- Lista de pets com alternância de visualização -->
+      <div *appAlternarExibicao="isGridView" class="pets-list pets-list-grid">
         <div *ngFor="let pet of pets | filtroPets: searchTerm | slice: 0:visiblePets" class="pet-card">
           <img [src]="pet.image" [alt]="pet.name" class="pet-image" />
           <h2>{{ pet.name }} <span *ngIf="pet.breed_group">({{ pet.breed_group }})</span></h2>
+        </div>
+      </div>
+
+      <div *appAlternarExibicao="!isGridView" class="pets-list pets-list-list">
+        <div *ngFor="let pet of pets | filtroPets: searchTerm | slice: 0:visiblePets" class="pet-list-item">
+          <img [src]="pet.image" [alt]="pet.name" class="pet-image-small" />
+          <div class="pet-details">
+            <h2>{{ pet.name }} <span *ngIf="pet.breed_group">({{ pet.breed_group }})</span></h2>
+            <p>{{ pet.description }}</p> <!-- Exibe a descrição na lista -->
+          </div>
         </div>
       </div>
 

@@ -1,21 +1,21 @@
 .adote-container {
   padding: 1px;
   text-align: center;
-  height: calc(100vh - 112px); /* Espaço total menos toolbar (56px) e rodapé (56px) */
-  overflow-y: auto; /* Habilita rolagem caso o conteúdo seja maior que o espaço disponível */
+  height: calc(100vh - 112px);
+  overflow-y: auto;
 
   ion-item {
     margin: 16px auto;
-    max-width: 800px; /* Largura máxima para telas maiores */
-    width: 90%; /* Responsivo para telas menores */
-    --background: #ffffff; /* Fundo branco para o campo */
-    --color: #333333; /* Cor do texto */
-    --placeholder-color: #999999; /* Cor do placeholder */
+    max-width: 800px;
+    width: 90%;
+    --background: #ffffff;
+    --color: #333333;
+    --placeholder-color: #999999;
 
     ion-label {
       font-size: 0.9rem;
       font-weight: bold;
-      color: #0078d4; /* Azul da paleta */
+      color: #0078d4;
     }
 
     ion-input {
@@ -28,35 +28,25 @@
 .header {
   margin-bottom: 18px;
 
-  /* Estilo do título */
   h1 {
     font-size: 1.5rem;
     font-weight: bold;
-    text-align: center;
+    text-align: right;
     margin: 16px 16px;
     color: rgb(0, 138, 73);
   }
 
-  /* Cachorro dentro do círculo azul */
   .circle {
     width: 120px;
     height: 0px;
     margin: 1px;
     border-radius: 75%;
-    background-color: #0078d4; /* Azul na paleta */
+    background-color: #0078d4;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    .header-image {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
   }
 
-  /* Texto dentro da imagem verde */
   .green-banner {
     background: url('/assets/images/verde.png') no-repeat center center;
     background-size: cover;
@@ -73,7 +63,7 @@
   }
 }
 
-.pets-list {
+.pets-list-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 16px;
@@ -81,9 +71,16 @@
   .pet-card {
     background: #ffffff;
     border-radius: 8px;
-    padding: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 120, 212, 0.2);
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 16px;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 120, 212, 0.3);
+    }
 
     .pet-image {
       width: 100%;
@@ -94,8 +91,8 @@
     }
 
     h2 {
-      font-size: 1rem;
-      font-weight: bold;
+      color: #0078d4;
+      font-size: 1.2rem;
       margin: 4px 0;
 
       span {
@@ -104,13 +101,62 @@
         color: #777;
       }
     }
+  }
+}
 
-    p {
-      font-size: 0.9rem;
-      color: #555;
-      margin: 4px 0;
+.pets-list-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .pet-list-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 120, 212, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 16px;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 120, 212, 0.3);
+    }
+
+    .pet-image-small {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 16px;
+    }
+
+    .pet-details {
+      text-align: left;
+
+      h2 {
+        color: #0078d4;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: #555;
+        max-width: 600px;
+        word-wrap: break-word;
+        margin-top: 8px;
+      }
     }
   }
+}
+
+.view-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 16px 0;
 }
 
 .controls {
@@ -123,10 +169,10 @@
     color: rgb(0, 138, 73);
   }
 }
-.toggle-link {
-  color: #0078D4; /* Azul claro */
-  cursor: pointer; /* Mostra o cursor como mãozinha para indicar que é clicável */
-  font-weight: bold; /* Negrito */
-  margin-left: 5px; /* Espaço entre o texto truncado e o link */
-}
 
+.toggle-link {
+  color: #0078D4;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 5px;
+}

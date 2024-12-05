@@ -5,13 +5,15 @@ import { HeaderFooterComponent } from '../components/header-footer/header-footer
 import { MonetaryPipe } from '../pipes/monetary.pipe';
 import { ExpandableTextDirective } from '../directives/expandable-text.directive';
 import { FiltroPetsPipe } from '../pipes/filtro-pets.pipe';
+import { AlternarExibicaoDirective } from '../directives/alternar-exibicao.directive';
 
 @NgModule({
   declarations: [
     HeaderFooterComponent,
     MonetaryPipe,
     ExpandableTextDirective,
-    FiltroPetsPipe
+    FiltroPetsPipe,
+    AlternarExibicaoDirective
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { FiltroPetsPipe } from '../pipes/filtro-pets.pipe';
     HeaderFooterComponent,
     MonetaryPipe,
     ExpandableTextDirective,
-    FiltroPetsPipe
+    FiltroPetsPipe,
+    AlternarExibicaoDirective
   ]
 })
 export class SharedModule {}

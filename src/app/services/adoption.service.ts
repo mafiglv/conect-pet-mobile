@@ -5,8 +5,9 @@ import { Observable, map } from 'rxjs';
 export interface Dog {
   id: string;
   name: string;
-  breed_group?: string; // Substituto para "breed"
+  breed_group?: string;
   image: string;
+  description: string;
 }
 
 @Injectable({
@@ -28,6 +29,7 @@ export class AdoptionService {
           name: dog.name,
           breed_group: dog.breed_group || 'Raça não especificada',
           image: dog.image?.url || 'assets/images/default-dog.png',
+          description: dog.temperament || 'Este é um pet adorável que está esperando por uma nova casa cheia de amor.' // Usando o "temperament" da API como descrição ou uma descrição genérica
         }))
       )
     );

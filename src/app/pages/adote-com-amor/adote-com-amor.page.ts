@@ -11,6 +11,7 @@ export class AdoteComAmorPage implements OnInit {
   visiblePets = 4; // Número inicial de pets visíveis
   showMore = false;
   searchTerm: string = ''; // Termo de busca
+  isGridView: boolean = true; // Controle para alternar entre lista e grade
 
   constructor(private adoptionService: AdoptionService) {}
 

@@ -55,5 +55,10 @@ export class ExpandableTextDirective implements OnInit {
       this.renderer.appendChild(this.el.nativeElement, toggleLink);
     }
     toggleLink.innerText = this.isExpanded ? ' Leia menos' : ' Leia mais';
+    
+    // Define a cor e outros estilos específicos para o link
+    this.renderer.setStyle(toggleLink, 'color', '#0078D4'); // Define a cor azul
+    this.renderer.setStyle(toggleLink, 'cursor', 'pointer'); // Mostra que o link é clicável
+    this.renderer.setStyle(toggleLink, 'font-weight', 'bold'); // Define o texto como negrito
   }
 }

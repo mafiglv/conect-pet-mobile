@@ -123,3 +123,10 @@
     color: rgb(0, 138, 73);
   }
 }
+.toggle-link {
+  color: #0078D4; /* Azul claro */
+  cursor: pointer; /* Mostra o cursor como mãozinha para indicar que é clicável */
+  font-weight: bold; /* Negrito */
+  margin-left: 5px; /* Espaço entre o texto truncado e o link */
+}
+

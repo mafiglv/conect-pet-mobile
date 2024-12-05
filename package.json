@@ -1,5 +1,5 @@
 {
-  "name": "Conect-Pet",
+  "name": "conect-pet-mobile",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -46,6 +46,8 @@
     "@capacitor/cli": "6.2.0",
     "@ionic/angular-toolkit": "^11.0.1",
     "@types/jasmine": "~5.1.0",
+    "@types/jest": "^29.5.14",
+    "@types/mocha": "^10.0.10",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.57.0",

@@ -10,7 +10,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes)], // Configuração de rotas
+  exports: [RouterModule], // Exporta para uso em outros módulos
 })
 export class AppRoutingModule {}

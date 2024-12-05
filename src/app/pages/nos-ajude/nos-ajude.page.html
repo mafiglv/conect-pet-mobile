@@ -1,14 +1,12 @@
 <app-header-footer>
   <ion-content>
     <div class="nos-ajude-container">
-      <!-- Header da página -->
+      <!-- Header -->
       <div class="header">
         <div class="circle">
           <img src="assets/images/dog.png" alt="Dog Header" class="header-image" />
         </div>
         <h1>NOS AJUDE</h1>
-
-        <!-- Banner azul -->
         <div class="blue-banner">
           <div class="blue-banner-text">
             Nossa barriguinha está vazia e estamos precisando de banho... Nos ajude doando!
@@ -16,17 +14,30 @@
         </div>
       </div>
 
-      <!-- Lista de doações -->
+      <!-- Campanhas -->
+      <div class="campaigns-list">
+        <h2>Campanhas em Destaque</h2>
+        <div *ngFor="let campaign of campaigns" class="campaign-card">
+          <img [src]="campaign.image" alt="{{ campaign.title }}" class="campaign-image" />
+          <h3>{{ campaign.title }}</h3>
+          <p>{{ campaign.description }}</p>
+          <p><strong>Meta:</strong> R$ {{ campaign.goal | monetary }}</p>
+          <p><strong>Arrecadado:</strong> R$ {{ campaign.raised | monetary }}</p>
+        </div>
+      </div>
+
+      <!-- Itens para Doação -->
+      <h2>Itens para Doação</h2>
       <div class="donations-list">
         <div *ngFor="let donation of donations | slice: 0:visibleDonations" class="donation-card">
           <img [src]="donation.image" [alt]="donation.name" class="donation-image" />
           <h2>{{ donation.name }}</h2>
           <p>{{ donation.description }}</p>
-          <p><strong>{{ donation.price }}</strong></p>
+          <strong>{{ donation.price }}</strong>
         </div>
       </div>
 
-      <!-- Botão de controle -->
+      <!-- Botão Mostrar Mais -->
       <div class="controls">
         <ion-button expand="block" color="primary" (click)="toggleDonations()">
           {{ showMore ? 'Mostrar Menos' : 'Mais Doações' }}

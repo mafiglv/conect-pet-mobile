@@ -8,23 +8,25 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { IdadePipe } from './pipes/idade.pipe';
 import { FiltroPetsPipe } from './pipes/filtro-pets.pipe';
-import { provideHttpClient } from '@angular/common/http'; // Nova abordagem
+import { SharedModule } from './shared/shared.module'; 
+import { HttpClientModule } from '@angular/common/http'; // Importando HttpClientModule
 
 @NgModule({
   declarations: [
     AppComponent,
-    IdadePipe,
-    FiltroPetsPipe
+    IdadePipe, // Pipe personalizada para calcular idade
+    FiltroPetsPipe // Pipe para filtrar pets
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+    HttpClientModule // Adicionando o módulo necessário para HttpClient
   ],
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    provideHttpClient()
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

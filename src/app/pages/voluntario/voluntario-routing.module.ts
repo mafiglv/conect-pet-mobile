@@ -5,7 +5,7 @@ import { VoluntarioPage } from './voluntario.page'; // Nome correto
 const routes: Routes = [
   {
     path: '',
-    component: VoluntarioPage, // Nome ajustado para a classe correta
+    component: VoluntarioPage, 
   },
 ];
 

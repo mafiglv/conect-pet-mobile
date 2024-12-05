@@ -1,45 +1,59 @@
-import { Directive, ElementRef, Input, Renderer2, AfterViewInit } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Renderer2,
+  Input,
+  HostListener,
+  OnInit
+} from '@angular/core';
 
 @Directive({
   selector: '[appExpandableText]'
 })
-export class ExpandableTextDirective implements AfterViewInit {
-  @Input() maxLength: number = 100; // Número máximo de caracteres visíveis inicialmente
-  private originalText: string = ''; // Inicializa com string vazia
-  private expanded: boolean = false;
-  private toggleLink!: HTMLElement; // Usando `!` para garantir que será inicializado depois
+export class ExpandableTextDirective implements OnInit {
+  @Input('appExpandableText') maxLength: number = 100; // Tamanho máximo inicial para o texto exibido
+  private originalText: string = '';
+  private isExpanded: boolean = false;
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
-  ngAfterViewInit(): void {
-    this.originalText = this.el.nativeElement.textContent.trim();
-
-    if (this.originalText.length > this.maxLength) {
-      this.createToggleLink();
-      this.updateText();
-    }
-  }
-
-  private createToggleLink() {
-    this.toggleLink = this.renderer.createElement('a');
-    this.renderer.setStyle(this.toggleLink, 'color', '#0078d4');
-    this.renderer.setStyle(this.toggleLink, 'cursor', 'pointer');
-    this.renderer.listen(this.toggleLink, 'click', () => this.toggleText());
-
-    this.el.nativeElement.appendChild(this.toggleLink);
-  }
-
-  private updateText() {
-    const displayText = this.expanded ? this.originalText : this.originalText.substring(0, this.maxLength) + '...';
-    this.renderer.setProperty(this.el.nativeElement, 'textContent', displayText);
-    this.renderer.appendChild(this.el.nativeElement, this.toggleLink);
-
-    const linkText = this.expanded ? ' Leia Menos' : ' Leia Mais';
-    this.renderer.setProperty(this.toggleLink, 'textContent', linkText);
-  }
-
-  private toggleText() {
-    this.expanded = !this.expanded;
+  ngOnInit(): void {
+    this.originalText = this.el.nativeElement.innerText;
     this.updateText();
+  }
+
+  @HostListener('click')
+  onClick(): void {
+    this.toggleText();
+  }
+
+  private updateText(): void {
+    if (this.isExpanded || this.originalText.length <= this.maxLength) {
+      this.renderer.setProperty(this.el.nativeElement, 'innerText', this.originalText);
+    } else {
+      const truncatedText = this.originalText.substring(0, this.maxLength) + '...';
+      this.renderer.setProperty(this.el.nativeElement, 'innerText', truncatedText);
+    }
+
+    this.addToggleLink();
+  }
+
+  private toggleText(): void {
+    this.isExpanded = !this.isExpanded;
+    this.updateText();
+  }
+
+  private addToggleLink(): void {
+    let toggleLink = this.el.nativeElement.querySelector('.toggle-link');
+    if (!toggleLink) {
+      toggleLink = this.renderer.createElement('span');
+      this.renderer.addClass(toggleLink, 'toggle-link');
+      this.renderer.listen(toggleLink, 'click', (event: Event) => {
+        event.stopPropagation();
+        this.toggleText();
+      });
+      this.renderer.appendChild(this.el.nativeElement, toggleLink);
+    }
+    toggleLink.innerText = this.isExpanded ? ' Leia menos' : ' Leia mais';
   }
 }

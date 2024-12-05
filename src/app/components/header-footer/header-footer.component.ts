@@ -8,21 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./header-footer.component.scss'],
 })
 export class HeaderFooterComponent {
-  isHidden: boolean = false; // Controle de visibilidade do rodapé
+  isHidden: boolean = false;
 
   constructor(private location: Location, private router: Router) {}
 
-  // Método para voltar à página anterior
   goBack(): void {
-    this.location.back(); // Volta para a página anterior no histórico
+    this.location.back();
   }
 
-  // Método para navegar para a página inicial
   goHome(): void {
-    this.router.navigate(['/home']); // Navega diretamente para a página inicial
+    this.router.navigateByUrl('/home'); // Outra maneira de fazer a navegação
   }
 
-  // Método para ocultar ou exibir o rodapé
   toggleFooterVisibility(hidden: boolean): void {
     this.isHidden = hidden;
   }

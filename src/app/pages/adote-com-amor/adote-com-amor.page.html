@@ -22,14 +22,13 @@
         <ion-label position="floating">Buscar Pets</ion-label>
         <ion-input
           [(ngModel)]="searchTerm"
-          (ionInput)="updateFilter()"
           placeholder="Digite o nome ou raça"
         ></ion-input>
       </ion-item>
 
       <!-- Lista de pets -->
       <div class="pets-list">
-        <div *ngFor="let pet of filteredPets | slice: 0:visiblePets" class="pet-card">
+        <div *ngFor="let pet of pets | filtroPets: searchTerm | slice: 0:visiblePets" class="pet-card">
           <img [src]="pet.image" [alt]="pet.name" class="pet-image" />
           <h2>{{ pet.name }} <span *ngIf="pet.breed_group">({{ pet.breed_group }})</span></h2>
         </div>

@@ -8,7 +8,6 @@ import { AdoptionService, Dog } from 'src/app/services/adoption.service';
 })
 export class AdoteComAmorPage implements OnInit {
   pets: Dog[] = []; // Lista de pets carregada
-  filteredPets: Dog[] = []; // Lista filtrada
   visiblePets = 4; // Número inicial de pets visíveis
   showMore = false;
   searchTerm: string = ''; // Termo de busca
@@ -24,7 +23,6 @@ export class AdoteComAmorPage implements OnInit {
     this.adoptionService.getDogs().subscribe(
       (data: Dog[]) => {
         this.pets = data;
-        this.filteredPets = data; // Inicializa lista filtrada
       },
       (error: any) => {
         console.error('Erro ao carregar os pets:', error);
@@ -32,19 +30,9 @@ export class AdoteComAmorPage implements OnInit {
     );
   }
 
-  // Atualiza o filtro de busca
-  updateFilter(): void {
-    const search = this.searchTerm.toLowerCase();
-    this.filteredPets = this.pets.filter(
-      (pet) =>
-        pet.name.toLowerCase().includes(search) ||
-        (pet.breed_group && pet.breed_group.toLowerCase().includes(search))
-    );
-  }
-
   // Alterna a exibição de "Mais Pets"
   togglePets(): void {
-    this.visiblePets = this.showMore ? 4 : this.filteredPets.length;
+    this.visiblePets = this.showMore ? 4 : this.pets.length;
     this.showMore = !this.showMore;
   }
 }

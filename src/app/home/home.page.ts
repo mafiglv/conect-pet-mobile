@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgZone } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage {
-  constructor() {}
+  constructor(private router: Router, private ngZone: NgZone) {}
+
+  navigateToAdoteComAmor() {
+    this.ngZone.run(() => {
+      this.router.navigate(['/adote-com-amor']);
+    });
+  }
 }

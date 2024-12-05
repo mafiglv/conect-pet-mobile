@@ -7,6 +7,7 @@ import { AdoteComAmorPageRoutingModule } from './adote-com-amor-routing.module';
 import { AdoteComAmorPage } from './adote-com-amor.page';
 import { SharedModule } from 'src/app/shared/shared.module'; // Importa o módulo compartilhado
 
+
 @NgModule({
   imports: [
     CommonModule,

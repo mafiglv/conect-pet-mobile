@@ -1,36 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Seja Voluntário</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <!-- Banner Principal -->
-  <div class="volunteer-banner">
-    <h2>SEJA VOLUNTÁRIO!</h2>
-    <img src="assets/images/volunteer-banner.png" alt="Banner Voluntário" class="volunteer-image" />
-  </div>
-
-  <!-- Texto Explicativo -->
-  <div class="volunteer-text">
-    <p>
-      O <span class="highlight">ConectPet</span> surgiu para transformar a vida dos animais de rua e unir pessoas que acreditam que todos merecem um lar cheio de carinho.
-    </p>
-    <p>
-      Nossa plataforma facilita todo o processo de voluntariado de forma
-      <span class="highlight">segura e prática!</span>
-    </p>
-  </div>
-
-  <!-- Ícones de Contato -->
-  <div class="contact-icons">
-    <h3>Entre em contato:</h3>
-    <div class="icon-container">
-      <ion-icon name="logo-instagram" class="icon instagram"></ion-icon>
-      <ion-icon name="logo-whatsapp" class="icon whatsapp"></ion-icon>
+<app-header-footer>
+  <ion-content>
+    <!-- Banner Principal -->
+    <div class="volunteer-banner">
+      <h2>SEJA VOLUNTÁRIO!</h2>
+      <img src="assets/images/volunteer-banner.png" alt="Banner Voluntário" class="volunteer-image" />
     </div>
-  </div>
-</ion-content>
+
+    <!-- Texto Explicativo -->
+    <div class="volunteer-text">
+      <p>
+        O <span class="highlight">ConectPet</span> surgiu para transformar a vida dos animais de rua e unir pessoas que acreditam que todos merecem um lar cheio de carinho.
+      </p>
+      <p>
+        Nossa plataforma facilita todo o processo de voluntariado de forma
+        <span class="highlight">segura e prática!</span>
+      </p>
+    </div>
+
+    <!-- Ícones de Contato -->
+    <div class="contact-icons">
+      <h3>Entre em contato:</h3>
+      <div class="icon-container">
+        <ion-icon name="logo-instagram" class="icon instagram" (click)="openInstagram()"></ion-icon>
+        <ion-icon name="logo-whatsapp" class="icon whatsapp" (click)="openWhatsApp()"></ion-icon>
+      </div>
+    </div>
+  </ion-content>
+</app-header-footer>

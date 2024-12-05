@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { VoluntarioPageRoutingModule } from './voluntario-routing.module';
-import { VoluntarioPage } from './voluntario.page'; // Nome correto
+import { VoluntarioPage } from './voluntario.page';
+import { SharedModule } from '../../shared/shared.module'; // Importe o SharedModule
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { VoluntarioPage } from './voluntario.page'; // Nome correto
     FormsModule,
     IonicModule,
     VoluntarioPageRoutingModule,
+    SharedModule, // Certifique-se de importar o SharedModule
   ],
-  declarations: [VoluntarioPage], // Nome corrigido
+  declarations: [VoluntarioPage],
 })
 export class VoluntarioPageModule {}

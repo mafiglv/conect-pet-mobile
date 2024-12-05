@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http'; // Importação do HttpClientModule
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { IdadePipe } from './pipes/idade.pipe';
 import { FiltroPetsPipe } from './pipes/filtro-pets.pipe';
+import { provideHttpClient } from '@angular/common/http'; // Nova abordagem
 
 @NgModule({
   declarations: [
@@ -20,11 +19,11 @@ import { FiltroPetsPipe } from './pipes/filtro-pets.pipe';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule,
-    HttpClientModule
+    AppRoutingModule
   ],
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    provideHttpClient()
   ],
   bootstrap: [AppComponent],
 })

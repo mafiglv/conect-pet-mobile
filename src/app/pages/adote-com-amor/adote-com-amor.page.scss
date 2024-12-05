@@ -3,6 +3,26 @@
   text-align: center;
   height: calc(100vh - 112px); /* Espaço total menos toolbar (56px) e rodapé (56px) */
   overflow-y: auto; /* Habilita rolagem caso o conteúdo seja maior que o espaço disponível */
+
+  ion-item {
+    margin: 16px auto;
+    max-width: 800px; /* Largura máxima para telas maiores */
+    width: 90%; /* Responsivo para telas menores */
+    --background: #ffffff; /* Fundo branco para o campo */
+    --color: #333333; /* Cor do texto */
+    --placeholder-color: #999999; /* Cor do placeholder */
+
+    ion-label {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #0078d4; /* Azul da paleta */
+    }
+
+    ion-input {
+      --padding-start: 1px;
+      font-size: 1rem;
+    }
+  }
 }
 
 .header {
@@ -12,7 +32,7 @@
   h1 {
     font-size: 1.5rem;
     font-weight: bold;
-    text-align:center;
+    text-align: center;
     margin: 16px 16px;
     color: rgb(0, 138, 73);
   }
@@ -39,7 +59,7 @@
   /* Texto dentro da imagem verde */
   .green-banner {
     background: url('/assets/images/verde.png') no-repeat center center;
-    background-size:cover;
+    background-size: cover;
     padding: 16px;
     border-radius: 8px;
     margin-top: 16px;
@@ -77,6 +97,7 @@
       font-size: 1rem;
       font-weight: bold;
       margin: 4px 0;
+
       span {
         font-weight: normal;
         font-size: 0.9rem;
@@ -94,7 +115,7 @@
 
 .controls {
   margin-top: 16px;
-  padding-bottom: 56px; 
+  padding-bottom: 56px;
 
   ion-button {
     font-size: 1rem;

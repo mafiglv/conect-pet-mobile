@@ -1,39 +1,50 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AdoptionService, Dog } from 'src/app/services/adoption.service';
 
 @Component({
   selector: 'app-adote-com-amor',
   templateUrl: './adote-com-amor.page.html',
   styleUrls: ['./adote-com-amor.page.scss'],
 })
-export class AdoteComAmorPage {
-  pets = [
-    { name: 'Whitney', gender: 'fêmea', age: 3, breed: 'British Longhair', image: 'assets/images/witney.png' },
-    { name: 'Buggy', gender: 'macho', age: 7, breed: 'Jack Russel Terrier', image: 'assets/images/buggy.png' },
-    { name: 'Coxinha', gender: 'macho', age: 6, breed: 'Half Breed', image: 'assets/images/coxinha.png' },
-    { name: 'Kiwi', gender: 'macho', age: 4, breed: 'Yorkshire Terrier', image: 'assets/images/kiwi.png' },
-    { name: 'Bola de Neve', gender: 'fêmea', age: 5, breed: 'Samoyed', image: 'assets/images/bola-de-neve.png' },
-    { name: 'Spike', gender: 'macho', age: 3, breed: 'Mixed Breed', image: 'assets/images/spike.png' },
-    { name: 'Gary', gender: 'macho', age: 2, breed: 'Poodle', image: 'assets/images/gary.png' },
-    { name: 'Moon', gender: 'fêmea', age: 1, breed: 'Persian Cat', image: 'assets/images/moon.png' },
-    { name: 'Bola de Neve', gender: 'fêmea', age: 5, breed: 'Samoyed', image: 'assets/images/bola-de-neve.png' },
-    { name: 'Spike', gender: 'macho', age: 3, breed: 'Mixed Breed', image: 'assets/images/spike.png' },
-    { name: 'Gary', gender: 'macho', age: 2, breed: 'Poodle', image: 'assets/images/gary.png' },
-    { name: 'Moon', gender: 'fêmea', age: 1, breed: 'Persian Cat', image: 'assets/images/moon.png' },
-    { name: 'Bola de Neve', gender: 'fêmea', age: 5, breed: 'Samoyed', image: 'assets/images/bola-de-neve.png' },
-    { name: 'Spike', gender: 'macho', age: 3, breed: 'Mixed Breed', image: 'assets/images/spike.png' },
-    { name: 'Gary', gender: 'macho', age: 2, breed: 'Poodle', image: 'assets/images/gary.png' },
-    
-  ];
-
+export class AdoteComAmorPage implements OnInit {
+  pets: Dog[] = []; // Lista de pets carregada
+  filteredPets: Dog[] = []; // Lista filtrada
   visiblePets = 4; // Número inicial de pets visíveis
   showMore = false;
+  searchTerm: string = ''; // Termo de busca
 
-  togglePets() {
-    if (this.showMore) {
-      this.visiblePets = 4; // Volta para o número inicial
-    } else {
-      this.visiblePets = this.pets.length; // Mostra todos os pets
-    }
+  constructor(private adoptionService: AdoptionService) {}
+
+  ngOnInit(): void {
+    this.loadPets();
+  }
+
+  // Carrega os pets usando o serviço
+  loadPets(): void {
+    this.adoptionService.getDogs().subscribe(
+      (data: Dog[]) => {
+        this.pets = data;
+        this.filteredPets = data; // Inicializa lista filtrada
+      },
+      (error: any) => {
+        console.error('Erro ao carregar os pets:', error);
+      }
+    );
+  }
+
+  // Atualiza o filtro de busca
+  updateFilter(): void {
+    const search = this.searchTerm.toLowerCase();
+    this.filteredPets = this.pets.filter(
+      (pet) =>
+        pet.name.toLowerCase().includes(search) ||
+        (pet.breed_group && pet.breed_group.toLowerCase().includes(search))
+    );
+  }
+
+  // Alterna a exibição de "Mais Pets"
+  togglePets(): void {
+    this.visiblePets = this.showMore ? 4 : this.filteredPets.length;
     this.showMore = !this.showMore;
   }
 }

@@ -28,6 +28,7 @@
 
       <!-- Lista de pets -->
       <div class="pets-list">
+        <!-- Aplicando a FiltroPetsPipe -->
         <div *ngFor="let pet of pets | filtroPets: searchTerm | slice: 0:visiblePets" class="pet-card">
           <img [src]="pet.image" [alt]="pet.name" class="pet-image" />
           <h2>{{ pet.name }} <span *ngIf="pet.breed_group">({{ pet.breed_group }})</span></h2>

@@ -1,30 +1,45 @@
-import { Directive, ElementRef, HostListener, Input, Renderer2, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2, AfterViewInit } from '@angular/core';
 
 @Directive({
   selector: '[appExpandableText]'
 })
-export class ExpandableTextDirective implements OnInit {
-  @Input('appExpandableText') maxHeight: number = 100; // Altura máxima antes de se tornar expansível
-
+export class ExpandableTextDirective implements AfterViewInit {
+  @Input() maxLength: number = 100; // Número máximo de caracteres visíveis inicialmente
+  private originalText: string = ''; // Inicializa com string vazia
   private expanded: boolean = false;
+  private toggleLink!: HTMLElement; // Usando `!` para garantir que será inicializado depois
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
-  ngOnInit() {
-    // Configura o estilo inicial
-    this.renderer.setStyle(this.el.nativeElement, 'max-height', `${this.maxHeight}px`);
-    this.renderer.setStyle(this.el.nativeElement, 'overflow', 'hidden');
-    this.renderer.setStyle(this.el.nativeElement, 'cursor', 'pointer');
+  ngAfterViewInit(): void {
+    this.originalText = this.el.nativeElement.textContent.trim();
+
+    if (this.originalText.length > this.maxLength) {
+      this.createToggleLink();
+      this.updateText();
+    }
   }
 
-  @HostListener('click') onClick() {
-    if (this.expanded) {
-      // Contrai o texto
-      this.renderer.setStyle(this.el.nativeElement, 'max-height', `${this.maxHeight}px`);
-    } else {
-      // Expande o texto
-      this.renderer.setStyle(this.el.nativeElement, 'max-height', 'none');
-    }
+  private createToggleLink() {
+    this.toggleLink = this.renderer.createElement('a');
+    this.renderer.setStyle(this.toggleLink, 'color', '#0078d4');
+    this.renderer.setStyle(this.toggleLink, 'cursor', 'pointer');
+    this.renderer.listen(this.toggleLink, 'click', () => this.toggleText());
+
+    this.el.nativeElement.appendChild(this.toggleLink);
+  }
+
+  private updateText() {
+    const displayText = this.expanded ? this.originalText : this.originalText.substring(0, this.maxLength) + '...';
+    this.renderer.setProperty(this.el.nativeElement, 'textContent', displayText);
+    this.renderer.appendChild(this.el.nativeElement, this.toggleLink);
+
+    const linkText = this.expanded ? ' Leia Menos' : ' Leia Mais';
+    this.renderer.setProperty(this.toggleLink, 'textContent', linkText);
+  }
+
+  private toggleText() {
     this.expanded = !this.expanded;
+    this.updateText();
   }
 }
